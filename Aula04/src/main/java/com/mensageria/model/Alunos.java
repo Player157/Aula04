@@ -7,6 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Alunos {
+    public Alunos() {
+
+    }
+
     public Long getMatricula() {
         return matricula;
     }
@@ -39,11 +43,11 @@ public class Alunos {
         this.maioridade = maioridade;
     }
 
-    public Cursos getCurso() {
+    public String getCurso() {
         return curso;
     }
 
-    public void setCurso(Cursos curso) {
+    public void setCurso(String curso) {
         this.curso = curso;
     }
 
@@ -55,7 +59,7 @@ public class Alunos {
         this.sexo = sexo;
     }
 
-    public Alunos(Long matricula, String nome, String telefone, boolean maioridade, Cursos curso, String sexo) {
+    public Alunos(Long matricula, String nome, String telefone, boolean maioridade, String curso, String sexo) {
         this.matricula = matricula;
         this.nome = nome;
         this.telefone = telefone;
@@ -68,7 +72,7 @@ public class Alunos {
     String nome;
     String telefone;
     boolean maioridade;
-    Cursos curso;
+    String curso;
     String sexo;
 
 }

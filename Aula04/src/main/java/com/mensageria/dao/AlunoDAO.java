@@ -22,7 +22,7 @@ public class AlunoDAO implements IAlunoDAO {
             preparedStatement.setString(1, aluno.getNome());
             preparedStatement.setString(2, aluno.getTelefone());
             preparedStatement.setBoolean(3, aluno.isMaioridade());
-            preparedStatement.setString(4, aluno.getCurso().toString());
+            preparedStatement.setString(4, aluno.getCurso());
             preparedStatement.setString(5, aluno.getSexo());
             preparedStatement.executeUpdate();
 
@@ -33,7 +33,7 @@ public class AlunoDAO implements IAlunoDAO {
                 aluno.setNome(resultSet.getString("nome"));
                 aluno.setTelefone(resultSet.getString("telefone"));
                 aluno.setMaioridade(resultSet.getBoolean("maioridade"));
-                aluno.setCurso(Cursos.valueOf(resultSet.getString("curso")));
+                aluno.setCurso(resultSet.getString("curso"));
                 aluno.setSexo(resultSet.getString("sexo"));
             }
         } catch (SQLException e) {
@@ -52,7 +52,7 @@ public class AlunoDAO implements IAlunoDAO {
             preparedStatement.setString(1, aluno.getNome());
             preparedStatement.setString(2, aluno.getTelefone());
             preparedStatement.setBoolean(3, aluno.isMaioridade());
-            preparedStatement.setString(4, aluno.getCurso().toString());
+            preparedStatement.setString(4, aluno.getCurso());
             preparedStatement.setString(5, aluno.getSexo());
             preparedStatement.setLong(6, aluno.getMatricula());
             preparedStatement.executeUpdate();
@@ -88,12 +88,12 @@ public class AlunoDAO implements IAlunoDAO {
             aluno.setNome(resultSet.getString("nome"));
             aluno.setTelefone(resultSet.getString("telefone"));
             aluno.setMaioridade(resultSet.getBoolean("maioridade"));
-            aluno.setCurso(Cursos.valueOf(resultSet.getString("curso")));
+            aluno.setCurso(resultSet.getString("curso"));
             aluno.setSexo(resultSet.getString("sexo"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return Optional.ofNullable(aluno);
+        return Optional.of(aluno);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class AlunoDAO implements IAlunoDAO {
                 aluno.setNome(resultSet.getString("nome"));
                 aluno.setTelefone(resultSet.getString("telefone"));
                 aluno.setMaioridade(resultSet.getBoolean("maioridade"));
-                aluno.setCurso(Cursos.valueOf(resultSet.getString("curso")));
+                aluno.setCurso(resultSet.getString("curso"));
                 aluno.setSexo(resultSet.getString("sexo"));
                 alunos.add(aluno);
             }
@@ -136,7 +136,7 @@ public class AlunoDAO implements IAlunoDAO {
                 aluno.setNome(resultSet.getString("nome"));
                 aluno.setTelefone(resultSet.getString("telefone"));
                 aluno.setMaioridade(resultSet.getBoolean("maioridade"));
-                aluno.setCurso(Cursos.valueOf(resultSet.getString("curso")));
+                aluno.setCurso(resultSet.getString("curso"));
                 aluno.setSexo(resultSet.getString("sexo"));
                 alunos.add(aluno);
             }
