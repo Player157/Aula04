@@ -1,16 +1,26 @@
 package com.mensageria.model;
 
-import lombok.*;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Curso {
-    public Curso() {
+    private Long codigo;
+    private String nome;
+    private String sigla;
+    private Areas area; // Assumindo que Areas é um enum ou classe que já foi definido.
 
+    // Construtores
+    public Curso() {}
+
+    public Curso(String sigla) {
+        this.sigla = sigla;
     }
 
+    public Curso(Long codigo, String nome, String sigla, Areas area) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.sigla = sigla;
+        this.area = area;
+    }
+
+    // Getters e Setters
     public Long getCodigo() {
         return codigo;
     }
@@ -35,24 +45,13 @@ public class Curso {
         this.sigla = sigla;
     }
 
+    public Areas getArea() {
+        return area;
+    }
 
     public void setArea(Areas area) {
         this.area = area;
     }
 
-
-    public Curso(Long codigo, String nome, String sigla, Areas area) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.sigla = sigla;
-        this.area = area;
-    }
-    Long codigo;
-    String nome;
-    String sigla;
-    Areas area;
-
-    public String getArea() {
-        return null;
-    }
+    // Métodos adicionais, como toString, hashCode, equals, etc., podem ser adicionados aqui.
 }
